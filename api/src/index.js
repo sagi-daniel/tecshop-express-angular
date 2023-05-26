@@ -4,7 +4,9 @@ const mongoose = require('mongoose');
 const app = require('./server');
 
 mongoose
-  .connect(`mongodb://${config.database.host}`)
+  .connect(
+    `mongodb+srv://${config.database.user}:${config.database.password}@${config.database.host}`
+  )
   .then(() => {
     logger.info('Mongodb connection is successful!');
   })
