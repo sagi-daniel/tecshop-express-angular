@@ -1,0 +1,12 @@
+{
+    "port": 3000,
+    "log_level-file": "debug",
+    "log_level-console": "info",
+    "database": {
+        "user": "adminTECH",
+        "password": "6AZ0x2zWghx7xKUz",
+        "host": "techshop.idiosnp.mongodb.net/techshop?retryWrites=true&w=majority"
+    }
+}
+
+

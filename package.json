@@ -1,0 +1,41 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/src/index.js",
+    "start:nodemon": "cross-env NODE_ENV=develop nodemon api/src/index.js",
+    "start:test": "cross-env NODE_ENV=test nodemon api/src/index.js",
+    "test": "jest",
+    "docker:build": "docker build -t fsapi-express-app:0.0.1 .",
+    "docker:run": "docker run -d -p 8080:3000 fsapi-express-app:0.0.1",
+    "docker-compose": "docker compose up"
+  },
+  "author": "Sági Dániel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.2",
+    "mongoose-id-validator": "^0.6.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "swagger-ui-express": "^4.6.2",
+    "validator": "^13.9.0",
+    "winston": "^3.8.2",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "cross-env": "^7.0.3",
+    "jest": "^29.5.0",
+    "jest-mock-req-res": "^1.0.2",
+    "supertest": "^6.3.3"
+  }
+}
