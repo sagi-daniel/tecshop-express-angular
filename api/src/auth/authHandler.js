@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 const logger = require('../config/logger');
-const { remove } = require('winston');
 
 const refreshDB = [];
 
@@ -56,27 +55,6 @@ exports.login = async (req, res, next) => {
       orders: user.orders
     }
   });
-};
-
-exports.registration = async (req, res, next) => {
-  if (!req.body['email'] || !req.body['password']) {
-    return res.status(400).send('Missing username or password');
-  }
-
-  // if (req.body['password'] !== req.body['passwordConfirm']) {
-  //   return res.status(400).send('password and passwordconfirm did not match');
-  // }
-
-  const user = await User.findOne({ email: req.body['email'] }, {});
-  if (user) {
-    return res.status(400).send('Existing email, choose a uniqe one');
-  }
-
-  const registratedUser = await User.create(req.body);
-  if (registratedUser) {
-    logger.info(`New user saved`);
-    res.status(201).json(registratedUser);
-  }
 };
 
 exports.refresh = (req, res, next) => {

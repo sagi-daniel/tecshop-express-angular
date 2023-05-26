@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const { join } = require('path');
 const logger = require('./config/logger');
 
@@ -10,13 +9,6 @@ const authHandler = require('./auth/authHandler');
 
 const angularAppPath = join(__dirname, '..', 'public', 'angular');
 
-//TODO swagger bekötés
-// const swaggerUi = require('swagger-ui-express');
-// const YAML = require('yamljs');
-// const swaggerDocument = YAML.load('./docs/swagger.yaml');
-//! login és json() közé
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 const app = express();
 
 const apiWrapper = express();
@@ -24,7 +16,6 @@ apiWrapper.use('/api', app);
 
 app.use(express.json());
 
-app.post('/registration', authHandler.registration);
 app.post('/login', authHandler.login);
 app.post('/refresh', authHandler.refresh);
 app.post('/logout', authHandler.logout);
